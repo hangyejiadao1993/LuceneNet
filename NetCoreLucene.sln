@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.Entity", "NCL.Entity\NCL.Entity.csproj", "{3C3319C2-1A88-447C-B284-ACFFDCE4812B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.WebApp", "NCL.WebApp\NCL.WebApp.csproj", "{30DA817A-4666-4596-ACAE-7E5EC1501D1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C3319C2-1A88-447C-B284-ACFFDCE4812B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C3319C2-1A88-447C-B284-ACFFDCE4812B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C3319C2-1A88-447C-B284-ACFFDCE4812B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C3319C2-1A88-447C-B284-ACFFDCE4812B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30DA817A-4666-4596-ACAE-7E5EC1501D1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30DA817A-4666-4596-ACAE-7E5EC1501D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30DA817A-4666-4596-ACAE-7E5EC1501D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30DA817A-4666-4596-ACAE-7E5EC1501D1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0CF052DB-C34C-4BAB-A5E3-89FA094C2B6F}
+	EndGlobalSection
+EndGlobal
