@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.Entity", "NCL.Entity\NC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.WebApp", "NCL.WebApp\NCL.WebApp.csproj", "{30DA817A-4666-4596-ACAE-7E5EC1501D1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.LuceneService", "NCL.LuceneService\NCL.LuceneService.csproj", "{C13D1BA5-37AB-4AE1-B7F5-947476EB2D37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.Helper", "NCL.Helper\NCL.Helper.csproj", "{120796C2-B1D5-4D8E-9FB3-BDA86D0F8550}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{30DA817A-4666-4596-ACAE-7E5EC1501D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30DA817A-4666-4596-ACAE-7E5EC1501D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30DA817A-4666-4596-ACAE-7E5EC1501D1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C13D1BA5-37AB-4AE1-B7F5-947476EB2D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C13D1BA5-37AB-4AE1-B7F5-947476EB2D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C13D1BA5-37AB-4AE1-B7F5-947476EB2D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C13D1BA5-37AB-4AE1-B7F5-947476EB2D37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{120796C2-B1D5-4D8E-9FB3-BDA86D0F8550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{120796C2-B1D5-4D8E-9FB3-BDA86D0F8550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{120796C2-B1D5-4D8E-9FB3-BDA86D0F8550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{120796C2-B1D5-4D8E-9FB3-BDA86D0F8550}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
