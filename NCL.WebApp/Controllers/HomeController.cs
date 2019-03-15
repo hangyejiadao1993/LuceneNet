@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NCL.Helper;
 using NCL.WebApp.Models;
 
 namespace NCL.WebApp.Controllers
@@ -12,6 +13,7 @@ namespace NCL.WebApp.Controllers
     {
         public IActionResult Index()
         {
+            var value = ConfigHelper.GetInstance("appsettings.json").GetValue("Test");
             return View();
         }
 
@@ -31,14 +33,7 @@ namespace NCL.WebApp.Controllers
 
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
-
-        public IActionResult Login()
-        {
-
-            return View();
-        }
-        
     }
 }

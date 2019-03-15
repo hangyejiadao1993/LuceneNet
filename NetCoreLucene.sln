@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.Entity", "NCL.Entity\NCL.Entity.csproj", "{3C3319C2-1A88-447C-B284-ACFFDCE4812B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCL.Entity", "NCL.Entity\NCL.Entity.csproj", "{3C3319C2-1A88-447C-B284-ACFFDCE4812B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.WebApp", "NCL.WebApp\NCL.WebApp.csproj", "{30DA817A-4666-4596-ACAE-7E5EC1501D1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCL.WebApp", "NCL.WebApp\NCL.WebApp.csproj", "{30DA817A-4666-4596-ACAE-7E5EC1501D1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.LuceneService", "NCL.LuceneService\NCL.LuceneService.csproj", "{C13D1BA5-37AB-4AE1-B7F5-947476EB2D37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCL.LuceneService", "NCL.LuceneService\NCL.LuceneService.csproj", "{C13D1BA5-37AB-4AE1-B7F5-947476EB2D37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.Helper", "NCL.Helper\NCL.Helper.csproj", "{120796C2-B1D5-4D8E-9FB3-BDA86D0F8550}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCL.Helper", "NCL.Helper\NCL.Helper.csproj", "{120796C2-B1D5-4D8E-9FB3-BDA86D0F8550}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
