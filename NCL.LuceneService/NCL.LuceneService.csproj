@@ -4,4 +4,16 @@
         <TargetFramework>netcoreapp2.2</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\NCL.Entity\NCL.Entity.csproj" />
+      <ProjectReference Include="..\NCL.Helper\NCL.Helper.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Lucene.Net" Version="4.8.0-beta00005" />
+      <PackageReference Include="Lucene.Net.Analysis.Common" Version="4.8.0-beta00005" />
+      <PackageReference Include="Lucene.Net.Join" Version="4.8.0-beta00005" />
+      <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00005" />
+    </ItemGroup>
+
 </Project>

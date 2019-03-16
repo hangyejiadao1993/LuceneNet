@@ -13,6 +13,7 @@ namespace NCL.WebApp.Controllers
     {
         public IActionResult Index()
         {
+           
             var value = ConfigHelper.GetInstance("appsettings.json").GetValue("Test");
             return View();
         }
