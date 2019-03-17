@@ -66,7 +66,7 @@ namespace NCL.LuceneService
                     phrase.Add(new Term("CategoryLevel","1"));
                     using (var searcher = writer.GetReader(false))
                     {
-                        var indexsearcher = new kkl(searcher);
+                        var indexsearcher = new IndexSearcher(searcher);
                         var hits = indexsearcher.Search(phrase, 20);
                         Debug.WriteLine(hits.ScoreDocs.Length);
                     }
