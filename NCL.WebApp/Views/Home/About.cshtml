@@ -1,7 +1,10 @@
-﻿@{
-    ViewData["Title"] = "About";
+﻿@model  System.Collections.Generic.IList< NCL.Entity.Category>
+@{
+        
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+
+@foreach (var item in @Model)
+{
+    <h1>@item.Id</h1>
+}

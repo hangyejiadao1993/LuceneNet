@@ -1,10 +1,14 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Documents;
 using Lucene.Net.Index;
+using Lucene.Net.Search;
 using Lucene.Net.Store;
 using Lucene.Net.Util;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +28,8 @@ namespace NCL.LuceneService
                 await ctx.AddAsync(category);
                 var writer = GetCategoryIndexWriter();
                 writer.AddDocument(GetCategoryDoc(category));
-                writer.Flush(false,false);
+                writer.Flush(false, false);
+                writer.Dispose();
                 return await ctx.SaveChangesAsync() > 0;
             }
         }
@@ -35,10 +40,12 @@ namespace NCL.LuceneService
             using (DbContext ctx = new advanced7Context())
             {
                 ctx.Set<Category>().Update(category);
-                var writer = GetCategoryIndexWriter();
-                writer.UpdateDocument(new Term("Id", category.Id.ToString()), GetCategoryDoc(category));
+                using (var writer = GetCategoryIndexWriter())
+                {
+                    writer.UpdateDocument(new Term("Id", category.Id.ToString()), GetCategoryDoc(category));
 
-                return await ctx.SaveChangesAsync() > 0;
+                    return await ctx.SaveChangesAsync() > 0;
+                }
             }
         }
 
@@ -46,14 +53,24 @@ namespace NCL.LuceneService
         {
             using (DbContext ctx = new advanced7Context())
             {
-                var writer = GetCategoryIndexWriter();
-                var entices = await ctx.Set<Category>().ToListAsync();
-                foreach (var item in entices)
+                using (var writer = GetCategoryIndexWriter())
                 {
-                    writer.AddDocument(GetCategoryDoc(item));
-                }
+                    var entices = await ctx.Set<Category>().ToListAsync();
+                    foreach (var item in entices)
+                    {
+                        writer.AddDocument(GetCategoryDoc(item));
+                    }
 
-                writer.Flush(false, false);
+                    writer.Flush(false, false);
+                    var phrase =   new MultiPhraseQuery();
+                    phrase.Add(new Term("CategoryLevel","1"));
+                    using (var searcher = writer.GetReader(false))
+                    {
+                        var indexsearcher = new kkl(searcher);
+                        var hits = indexsearcher.Search(phrase, 20);
+                        Debug.WriteLine(hits.ScoreDocs.Length);
+                    }
+                }
             }
         }
 
@@ -65,9 +82,9 @@ namespace NCL.LuceneService
             doc.AddStringField("Name", item.Name, Field.Store.YES);
             doc.AddStringField("Code", item.Code, Field.Store.YES);
             doc.AddStringField("Id", item.ParentCode, Field.Store.YES);
-            doc.AddInt32Field("State", item.State ?? 0, Field.Store.YES);
+            doc.AddInt32Field("State", item.State.HasValue?item.State.Value: 0, Field.Store.YES);
             doc.AddStringField("Url", item.Url, Field.Store.YES);
-            doc.AddInt32Field("CategoryLevel", item.CategoryLevel ?? 0, Field.Store.YES);
+            doc.AddStringField("CategoryLevel", (item.CategoryLevel.HasValue?item.CategoryLevel.Value:0).ToString(), Field.Store.YES);
             return doc;
         }
 
@@ -91,11 +108,42 @@ namespace NCL.LuceneService
             return writer;
         }
 
- 
-        
-        
-        
-        
-        
+        public IList<Category> GetCagegory(string Level)
+        {
+            var phrase = new MultiPhraseQuery();
+            phrase.Add(new Term("Name", "书"));
+            var indexwriter = GetCategoryIndexWriter();
+
+            var searcher = new IndexSearcher(indexwriter.GetReader(applyAllDeletes: true));
+
+            var phrase2 = new MultiPhraseQuery();
+
+
+            var hits = searcher.Search(phrase, Int32.MaxValue).ScoreDocs;
+
+            var hits2 = searcher.Search(phrase2, 40).ScoreDocs;
+
+            IList<Category> list = new List<Category>();
+            foreach (var hit in hits)
+            {
+                var foundDoc = searcher.Doc(hit.Doc);
+
+                var Id = foundDoc.Get("Id");
+                var Code = (foundDoc.Get("Code"));
+                list.Add(new Category()
+                {
+                    Id = int.Parse(foundDoc.Get("Id")),
+                    Name = foundDoc.Get("Name"),
+                    Code = foundDoc.Get("Code"),
+                    ParentCode = foundDoc.Get("ParentCode"),
+                    CategoryLevel = int.Parse(foundDoc.Get("CategoryLevel")),
+                    State = int.Parse(foundDoc.Get("State")),
+                    Url = foundDoc.Get("Url")
+                });
+            }
+
+            indexwriter.Dispose();
+            return list;
+        }
     }
 }

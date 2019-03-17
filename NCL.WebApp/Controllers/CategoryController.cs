@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using NCL.Entity;
+using NCL.LuceneService;
 
 namespace NCL.WebApp.Controllers
 {
@@ -10,6 +11,7 @@ namespace NCL.WebApp.Controllers
             
             
             
+            CategoryLucenService service=new CategoryLucenService();
             
             return Ok("");
         }

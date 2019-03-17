@@ -5,24 +5,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NCL.Helper;
+using NCL.LuceneService;
 using NCL.WebApp.Models;
 
 namespace NCL.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-           
-            var value = ConfigHelper.GetInstance("appsettings.json").GetValue("Test");
-            return View();
+          await     new CategoryLucenService().InitIndex();
+          
+            return View(  );
         }
 
+       
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            var category = new CategoryLucenService();
+            var data = category.GetCagegory("1");
 
-            return View();
+            return View(data);
         }
 
         public IActionResult Contact()

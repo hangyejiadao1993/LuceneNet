@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\NCL.Entity\NCL.Entity.csproj" />
     <ProjectReference Include="..\NCL.Helper\NCL.Helper.csproj" />
+    <ProjectReference Include="..\NCL.LuceneService\NCL.LuceneService.csproj" />
   </ItemGroup>
 
   <ItemGroup>
