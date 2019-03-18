@@ -61,19 +61,8 @@ namespace NCL.LuceneService
                     foreach (var item in entices)
                     {
                         writer.AddDocument(GetCategoryDoc(item));
-                    }
-
-                    writer.Flush(false, false);
-//                    FieldComparer.Int32ComparerK
-                    var query = NumericRangeQuery.NewInt32Range("CategoryLevel", 1, 1, true, true);
-
-
-                    using (var searcher = writer.GetReader(false))
-                    {
-                        var indexsearcher = new IndexSearcher(searcher);
-                        var hits = indexsearcher.Search(query, Int32.MaxValue);
-                        Debug.WriteLine(hits.ScoreDocs.Length);
-                    }
+                    } 
+                    writer.Flush(false, false); 
                 }
             }
         }
