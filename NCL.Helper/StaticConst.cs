@@ -22,11 +22,15 @@ namespace NCL.Helper
         /// 目录索引路径路径
         /// </summary>
         public const string CategoryIndexPath = "CategoryIndexPath";
-        
-        
-        
-        
-        
-        
+
+
+
+
+        /// <summary>
+        /// 商品索引目录
+        /// </summary>
+        public const string CommodityIndexPath = "CommodityIndexPath";
+
+
     }
 }

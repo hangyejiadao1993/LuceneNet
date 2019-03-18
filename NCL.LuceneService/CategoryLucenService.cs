@@ -61,8 +61,9 @@ namespace NCL.LuceneService
                     foreach (var item in entices)
                     {
                         writer.AddDocument(GetCategoryDoc(item));
-                    } 
-                    writer.Flush(false, false); 
+                    }
+
+                    writer.Flush(false, false);
                 }
             }
         }
@@ -103,42 +104,45 @@ namespace NCL.LuceneService
             return writer;
         }
 
-        public IList<Category> GetCagegory(string Level)
+        public IList<Category> GetCagegory(int Level)
         {
-            var phrase = new MultiPhraseQuery();
-            phrase.Add(new Term("Name", "书"));
-            var indexwriter = GetCategoryIndexWriter();
-
-            var searcher = new IndexSearcher(indexwriter.GetReader(applyAllDeletes: true));
-
-            var phrase2 = new MultiPhraseQuery();
-
-
-            var hits = searcher.Search(phrase, Int32.MaxValue).ScoreDocs;
-
-            var hits2 = searcher.Search(phrase2, 40).ScoreDocs;
-
-            IList<Category> list = new List<Category>();
-            foreach (var hit in hits)
+            using (var indexwriter = GetCategoryIndexWriter())
             {
-                var foundDoc = searcher.Doc(hit.Doc);
-
-                var Id = foundDoc.Get("Id");
-                var Code = (foundDoc.Get("Code"));
-                list.Add(new Category()
+                var query = NumericRangeQuery.NewInt32Range("CategoryLevel", Level, Level, true, true);
+                var searcher = new IndexSearcher(indexwriter.GetReader(applyAllDeletes: true));
+                var hits = searcher.Search(query, Int32.MaxValue).ScoreDocs;
+                IList<Category> list = new List<Category>();
+                foreach (var hit in hits)
                 {
-                    Id = int.Parse(foundDoc.Get("Id")),
-                    Name = foundDoc.Get("Name"),
-                    Code = foundDoc.Get("Code"),
-                    ParentCode = foundDoc.Get("ParentCode"),
-                    CategoryLevel = int.Parse(foundDoc.Get("CategoryLevel")),
-                    State = int.Parse(foundDoc.Get("State")),
-                    Url = foundDoc.Get("Url")
-                });
-            }
+                    var foundDoc = searcher.Doc(hit.Doc);
+                    list.Add(
+                        DocumentToCategory(foundDoc)
+                    );
+                }
 
-            indexwriter.Dispose();
-            return list;
+                return list;
+            }
+        }
+        
+        
+            
+        
+        
+        
+
+        private Category DocumentToCategory(Document foundDoc)
+        {
+            Category entity = new Category()
+            {
+                Id = int.Parse(foundDoc.Get("Id")),
+                Name = foundDoc.Get("Name"),
+                Code = foundDoc.Get("Code"),
+                ParentCode = foundDoc.Get("ParentCode"),
+                CategoryLevel = int.Parse(foundDoc.Get("CategoryLevel")),
+                State = int.Parse(foundDoc.Get("State")),
+                Url = foundDoc.Get("Url")
+            };
+            return entity;
         }
     }
 }
