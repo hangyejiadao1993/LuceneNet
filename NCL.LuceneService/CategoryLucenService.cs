@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Documents;
 using Lucene.Net.Index;
+using Lucene.Net.QueryParsers.Classic;
 using Lucene.Net.Search;
 using Lucene.Net.Store;
 using Lucene.Net.Util;
@@ -26,11 +27,12 @@ namespace NCL.LuceneService
             using (DbContext ctx = new advanced7Context())
             {
                 await ctx.AddAsync(category);
-                var writer = GetCategoryIndexWriter();
-                writer.AddDocument(GetCategoryDoc(category));
-                writer.Flush(false, false);
-                writer.Dispose();
-                return await ctx.SaveChangesAsync() > 0;
+                using (IndexWriter writer = GetCategoryIndexWriter())
+                {
+                    writer.AddDocument(GetCategoryDoc(category));
+                    writer.Flush(false, false);
+                    return await ctx.SaveChangesAsync() > 0;
+                }
             }
         }
 
@@ -62,12 +64,14 @@ namespace NCL.LuceneService
                     }
 
                     writer.Flush(false, false);
-                    var phrase =   new MultiPhraseQuery();
-                    phrase.Add(new Term("CategoryLevel","1"));
+//                    FieldComparer.Int32ComparerK
+                    var query = NumericRangeQuery.NewInt32Range("CategoryLevel", 1, 1, true, true);
+
+
                     using (var searcher = writer.GetReader(false))
                     {
                         var indexsearcher = new IndexSearcher(searcher);
-                        var hits = indexsearcher.Search(phrase, 20);
+                        var hits = indexsearcher.Search(query, Int32.MaxValue);
                         Debug.WriteLine(hits.ScoreDocs.Length);
                     }
                 }
@@ -82,9 +86,11 @@ namespace NCL.LuceneService
             doc.AddStringField("Name", item.Name, Field.Store.YES);
             doc.AddStringField("Code", item.Code, Field.Store.YES);
             doc.AddStringField("Id", item.ParentCode, Field.Store.YES);
-            doc.AddInt32Field("State", item.State.HasValue?item.State.Value: 0, Field.Store.YES);
+            doc.AddInt32Field("State", item.State ?? 0, Field.Store.YES);
             doc.AddStringField("Url", item.Url, Field.Store.YES);
-            doc.AddStringField("CategoryLevel", (item.CategoryLevel.HasValue?item.CategoryLevel.Value:0).ToString(), Field.Store.YES);
+            doc.AddInt32Field("CategoryLevel", item.CategoryLevel ?? 0,
+                Field.Store.YES);
+
             return doc;
         }
 
