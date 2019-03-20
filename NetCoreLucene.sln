@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreTest", "NetCoreTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.Web", "NCL.Web\NCL.Web.csproj", "{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.IndexManager", "NCL.IndexManager\NCL.IndexManager.csproj", "{7B4EDA46-3CCB-470D-BB21-1A239CB8DB56}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B4EDA46-3CCB-470D-BB21-1A239CB8DB56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B4EDA46-3CCB-470D-BB21-1A239CB8DB56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B4EDA46-3CCB-470D-BB21-1A239CB8DB56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B4EDA46-3CCB-470D-BB21-1A239CB8DB56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
