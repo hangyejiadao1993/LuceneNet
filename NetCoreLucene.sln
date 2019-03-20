@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCL.Helper", "NCL.Helper\NC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreTest", "NetCoreTest\NetCoreTest.csproj", "{5383E89C-9367-4C3D-8FFE-5E928DD4F370}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.Web", "NCL.Web\NCL.Web.csproj", "{FC21BB66-1CEF-41A8-B1A7-46F4DA8C87ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.Web", "NCL.Web\NCL.Web.csproj", "{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{5383E89C-9367-4C3D-8FFE-5E928DD4F370}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5383E89C-9367-4C3D-8FFE-5E928DD4F370}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5383E89C-9367-4C3D-8FFE-5E928DD4F370}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC21BB66-1CEF-41A8-B1A7-46F4DA8C87ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC21BB66-1CEF-41A8-B1A7-46F4DA8C87ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC21BB66-1CEF-41A8-B1A7-46F4DA8C87ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC21BB66-1CEF-41A8-B1A7-46F4DA8C87ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

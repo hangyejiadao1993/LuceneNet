@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.IO;
 using Lucene.Net.Analysis;
 using Lucene.Net.Documents;
@@ -8,6 +9,10 @@ using Lucene.Net.Util;
 using NCL.Helper;
 using NCL.LuceneService.Dto;
 using Directory = System.IO.Directory;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using NCL.Entity;
 
 namespace NCL.LuceneService
 {
@@ -15,12 +20,17 @@ namespace NCL.LuceneService
     {
         #region MyRegion
 
-        
+        public void BuildIndex ()
+        {
+            using (IndexWriter writer=GetCommodityIndexWriter())
+            {
+                
+            }
+        }
 
         #endregion
-        
-        
-        
+
+
         #region 私有方法
 
         private Document GetDoc(Commodity entity)
