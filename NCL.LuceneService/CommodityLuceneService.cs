@@ -20,11 +20,14 @@ namespace NCL.LuceneService
     {
         #region MyRegion
 
-        public void BuildIndex ()
+        public void BuildIndex()
         {
-            using (IndexWriter writer=GetCommodityIndexWriter())
+            for (int i = 1; i < 30; i++)
             {
-                
+                using ()
+                {
+                    
+                }
             }
         }
 
@@ -91,6 +94,7 @@ namespace NCL.LuceneService
             }
 
             IndexWriter writer = new IndexWriter(fsdir, new IndexWriterConfig(Lucenversion, new PanGuAnalyzer()));
+            
             return writer;
         }
 
