@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using NCL.Entity;
+using Lucene.Net.Analysis.Standard;
 
 namespace NCL.LuceneService
 {
@@ -22,13 +23,7 @@ namespace NCL.LuceneService
 
         public void BuildIndex()
         {
-            for (int i = 1; i < 30; i++)
-            {
-                using ()
-                {
-                    
-                }
-            }
+            
         }
 
         #endregion
@@ -93,7 +88,7 @@ namespace NCL.LuceneService
                 IndexWriter.Unlock(fsdir);
             }
 
-            IndexWriter writer = new IndexWriter(fsdir, new IndexWriterConfig(Lucenversion, new PanGuAnalyzer()));
+            IndexWriter writer = new IndexWriter(fsdir, new IndexWriterConfig(Lucenversion, new StandardAnalyzer(Lucenversion)));
             
             return writer;
         }

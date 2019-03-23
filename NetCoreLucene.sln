@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28714.193
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCL.Entity", "NCL.Entity\NCL.Entity.csproj", "{3C3319C2-1A88-447C-B284-ACFFDCE4812B}"
 EndProject
@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCL.LuceneService", "NCL.Lu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCL.Helper", "NCL.Helper\NCL.Helper.csproj", "{120796C2-B1D5-4D8E-9FB3-BDA86D0F8550}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreTest", "NetCoreTest\NetCoreTest.csproj", "{5383E89C-9367-4C3D-8FFE-5E928DD4F370}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreTest", "NetCoreTest\NetCoreTest.csproj", "{5383E89C-9367-4C3D-8FFE-5E928DD4F370}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCL.Web", "NCL.Web\NCL.Web.csproj", "{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCL.Web", "NCL.Web\NCL.Web.csproj", "{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1", "F:\LuceneNet\LuceneNet\WpfApp1\WpfApp1.csproj", "{9CB6B00D-EA99-4367-ABDF-E9847928CCB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED145AAD-0AE4-4F5B-BAD9-CCE4D6024720}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB6B00D-EA99-4367-ABDF-E9847928CCB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB6B00D-EA99-4367-ABDF-E9847928CCB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB6B00D-EA99-4367-ABDF-E9847928CCB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB6B00D-EA99-4367-ABDF-E9847928CCB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
